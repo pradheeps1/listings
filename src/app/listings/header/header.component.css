@@ -1,0 +1,22 @@
+.header {
+    min-width: 192px;
+    max-height: 192px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-bottom: 36px;
+    font-size: 14pt;
+    color: #FFFFFF
+}
+
+.custom-position {
+    position: relative;
+    transform: translateY(50%);
+}
+
+.title {
+    padding-left: 10px;
+}
+
+.custom-img {
+    padding: 3px;
+}
