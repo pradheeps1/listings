@@ -1,12 +1,12 @@
 <div class="custom-conatiner">
   <div class="col-xs-4" *ngFor="let card of cards">
-    <div class="">
+    <div>
       <img class="img-responsive" [src]="card.posterImage" [alt]="card.name" width="150" height="175">
-      <div class="card-title">
+      <div class="card-title" [title]="card.name">
         <span>{{card.name}}</span>
       </div>
     </div>
   </div>
-  <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="populateData()">
+  <div infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="300" (scrolled)="populateData()">
   </div>
 </div>
