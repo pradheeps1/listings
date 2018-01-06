@@ -13,6 +13,7 @@ import { ListingsComponent } from './listings/listings.component';
 
 //Services
 import { ListingsService } from './listings/listings.service';
+import { HeaderService } from './listings/header/header.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { ListingsService } from './listings/listings.service';
     HttpModule,
     InfiniteScrollModule
   ],
-  providers: [ListingsService],
+  providers: [ListingsService, HeaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

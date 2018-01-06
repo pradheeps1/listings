@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardModel } from './card.model';
 import { ListingsService } from '../listings.service';
+import { HeaderService } from '../header/header.service';
 
 @Component({
   selector: 'app-content',
@@ -13,7 +14,7 @@ export class ContentComponent implements OnInit {
   currentPage: number = 1;
   finished = false;
 
-  constructor(private listingsService: ListingsService) { }
+  constructor(private listingsService: ListingsService, private headerService: HeaderService) { }
 
   ngOnInit() {
     this.populateData();
@@ -27,6 +28,7 @@ export class ContentComponent implements OnInit {
   private processResponseCards = (cardsRes) => {
     let response = cardsRes.json();
     let cardsData = response.page['content-items'].content;
+    this.headerService.listingsSubject.next(response.page.title);
     if (response.page['page-size-requested'] !== response.page['page-size-returned'])
       this.finished = true;
 
