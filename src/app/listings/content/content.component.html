@@ -1,3 +1,14 @@
-<p>
-  content works!
-</p>
+<div class="custom-conatiner">
+  <div class="col-xs-4">
+    <img src="./assets/images/poster1.jpg" alt="Back Button" width="125" height="175">
+    <div class="card-title">
+      <span>The Birds</span>
+    </div>
+  </div>
+  <div class="col-xs-4" *ngFor="let card of cards">
+    <img [src]="card.posterImage" [alt]="card.name" width="125" height="175">
+    <div class="card-title">
+      <span>{{card.name}}</span>
+    </div>
+  </div>
+</div>
