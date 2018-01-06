@@ -4,5 +4,13 @@ div {
 
 .card-title {
     margin-top: 12px;
-    margin-bottom: 45px;
+    margin-bottom: 25px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.custom-conatiner {
+    padding-left: 15px;
+    padding-right: 15px;
 }
