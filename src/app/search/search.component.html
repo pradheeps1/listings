@@ -11,8 +11,8 @@
 <div class="custom-padding">
   <div class="col-xs-4" *ngFor="let card of cardsSearched">
     <div>
-      <img class="img-responsive" [src]="card.posterImage" [alt]="card.name" width="150" height="175">
-      <div class="card-title" [title]="card.name">
+      <img class="img-responsive card-image" [src]="card.posterImage" [alt]="card.name" width="150" height="175">
+      <div class="card-title title" [title]="card.name">
         <span>{{card.name}}</span>
       </div>
     </div>

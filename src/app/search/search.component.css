@@ -47,6 +47,10 @@ div {
     white-space: nowrap;
 }
 
+.card-image {
+    margin: auto;
+}
+
 .custom-padding {
     padding-left: 8px;
     padding-right: 8px;
@@ -57,4 +61,10 @@ div {
     font-size: 28px;
     text-align: center;
     margin-top: 100px;
+}
+
+@media screen and (min-width: 576px) {
+    .title {
+        text-align: center;
+    }
 }
