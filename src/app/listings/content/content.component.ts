@@ -25,7 +25,7 @@ export class ContentComponent implements OnInit {
       .subscribe((response) => this.processResponseCards(response));
   }
 
-  private processResponseCards = (cardsRes) => {
+  processResponseCards = (cardsRes) => {
     let response = cardsRes.json();
     let cardsData = response.page['content-items'].content;
     this.headerService.listingsSubject.next(response.page.title);

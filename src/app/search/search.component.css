@@ -34,3 +34,27 @@
     width: 90%;
     margin: auto;
 }
+
+div {
+    color: white;
+}
+
+.card-title {
+    margin-top: 12px;
+    margin-bottom: 25px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.custom-padding {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 64px;
+}
+
+.message-container {
+    font-size: 28px;
+    text-align: center;
+    margin-top: 40%;
+}

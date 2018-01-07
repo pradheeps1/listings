@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { CardModel } from '../listings/content/card.model';
+import { ListingsService } from '../listings/listings.service';
 
 @Component({
   selector: 'app-search',
@@ -9,15 +12,51 @@ import { Router } from '@angular/router';
 export class SearchComponent implements OnInit {
 
   searchText = "";
+  noResultsFound = false;
+  cardsToSearch: CardModel[] = [];
+  cardsSearched: CardModel[] = [];
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private listingsService: ListingsService,
+    private renderer: Renderer2) { }
 
   ngOnInit() {
+    this.populateAPIResponse();
+    this.renderer.selectRootElement('#searchinput').focus();
   }
 
   clearSearchField() {
     this.searchText = "";
-    this.router.navigate(['/videolistings']);
+    this.cardsSearched = [];
+    this.noResultsFound = false;
+  }
+
+  populateAPIResponse() {
+    this.cardsToSearch = [];
+    let currentPage = 1;
+    for (; currentPage <= 3; currentPage++) {
+      this.listingsService.getContentListingPage(currentPage)
+        .subscribe((response) => this.processResponseCards(response));
+    }
+  }
+
+  processResponseCards = (cardsRes) => {
+    let response = cardsRes.json();
+    let cardsData = response.page['content-items'].content;
+
+    for (let i = 0; i < cardsData.length; i++) {
+      this.cardsToSearch.push(new CardModel(cardsData[i].name, cardsData[i]['poster-image']));
+    }
+  }
+
+  onSearchChange() {
+    this.cardsSearched = [];
+    this.noResultsFound = false;
+    if (this.searchText === "") return;
+    this.cardsSearched = this.cardsToSearch.filter(card => card.name.toLowerCase().includes(this.searchText.toLowerCase()));
+    if (this.cardsSearched.length == 0)
+      this.noResultsFound = true;
   }
 
 }

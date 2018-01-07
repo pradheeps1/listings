@@ -2,9 +2,23 @@
   <div class="row header-top"></div>
   <div class="row header-content">
     <div class="btn-group search-group">
-      <input id="searchinput" type="search" [(ngModel)]="searchText" class="form-control" placeholder="Search for movies">
+      <input id="searchinput" type="search" [(ngModel)]="searchText" class="form-control" (input)="onSearchChange()" placeholder="Start Searching">
       <span id="searchclear" class="glyphicon glyphicon-remove" (click)="clearSearchField()"></span>
     </div>
   </div>
   <div class="row header-bottom"></div>
+</div>
+<div class="custom-padding">
+  <div class="col-xs-4" *ngFor="let card of cardsSearched">
+    <div>
+      <img class="img-responsive" [src]="card.posterImage" [alt]="card.name" width="150" height="175">
+      <div class="card-title" [title]="card.name">
+        <span>{{card.name}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="message-container">
+  <span *ngIf="searchText === ''">Search for shows, movies, sports &amp; TV channels.</span>
+  <span *ngIf="noResultsFound">No results found.</span>
 </div>
