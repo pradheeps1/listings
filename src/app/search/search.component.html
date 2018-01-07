@@ -1,3 +1,10 @@
-<p>
-  search works!
-</p>
+<div class="container-fluid header">
+  <div class="row header-top"></div>
+  <div class="row header-content">
+    <div class="btn-group search-group">
+      <input id="searchinput" type="search" [(ngModel)]="searchText" class="form-control" placeholder="Search for movies">
+      <span id="searchclear" class="glyphicon glyphicon-remove" (click)="clearSearchField()"></span>
+    </div>
+  </div>
+  <div class="row header-bottom"></div>
+</div>

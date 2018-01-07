@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  searchText = "";
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  clearSearchField() {
+    this.searchText = "";
+    this.router.navigate(['/videolistings']);
   }
 
 }

@@ -1,0 +1,36 @@
+.header {
+    height: 30px;
+    z-index: 10;
+    position: fixed;
+}
+
+.header-top {
+    height: 20px;
+    background-color: rgba(0, 0, 0, 1) !important;
+}
+
+.header-content {
+    background-color: rgba(0, 0, 0, 1) !important;
+}
+
+.header-bottom {
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+#searchclear {
+    position: absolute;
+    right: 8px;
+    top: 0;
+    bottom: 0;
+    height: 14px;
+    margin: auto;
+    font-size: 14px;
+    cursor: pointer;
+    color: #726b6b;
+}
+
+.search-group {
+    width: 90%;
+    margin: auto;
+}

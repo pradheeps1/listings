@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HeaderService } from './header.service';
 
 @Component({
@@ -10,12 +11,16 @@ export class HeaderComponent implements OnInit {
 
   headerTitle: string;
 
-  constructor(private headerService: HeaderService) { }
+  constructor(private headerService: HeaderService, private router: Router) { }
 
   ngOnInit() {
     this.headerService.listingsSubject.subscribe(
       (title: string) => this.headerTitle = title
     );
+  }
+
+  onClickSearch() {
+    this.router.navigate(['/search']);
   }
 
 }
