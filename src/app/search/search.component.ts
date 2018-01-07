@@ -32,6 +32,8 @@ export class SearchComponent implements OnInit {
     this.noResultsFound = false;
   }
 
+  // The compelete JSON data is populated in cardsToSearch and reused while searching.
+  // Ideally a search API should be used to do this, for time being i used a static way to search.
   populateAPIResponse() {
     this.cardsToSearch = [];
     let currentPage = 1;
